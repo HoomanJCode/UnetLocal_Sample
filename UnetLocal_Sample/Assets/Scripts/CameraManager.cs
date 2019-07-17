@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
@@ -9,7 +7,7 @@ public class CameraManager : MonoBehaviour
     {
         //look at my player
         // ReSharper disable once Unity.PerformanceCriticalCodeNullComparison
-        if(PlayerManager.MyPlayer!=null)
+        if (PlayerManager.MyPlayer != null)
             transform.LookAt(PlayerManager.MyPlayer.transform);
     }
 }

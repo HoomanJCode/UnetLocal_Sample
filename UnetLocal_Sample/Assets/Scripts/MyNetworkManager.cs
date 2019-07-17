@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
@@ -9,27 +6,25 @@ using UnityEngine.UI;
 public class MyNetworkManager : NetworkManager
 {
     //get network discovery component
-    private MyNetworkDiscovery Discovery
-    {
-        get { return GetComponent<MyNetworkDiscovery>(); }   
-    }
+    private MyNetworkDiscovery _discovery;
 
     private void Start()
     {
+        _discovery=GetComponent<MyNetworkDiscovery>();
         //this require on network discovery
-        Discovery.Initialize();
+        _discovery.Initialize();
     }
 
     public void SearchGame()
     {
         //start search for servers over network
-        Discovery.StartAsClient();
+        _discovery.StartAsClient();
     }
 
     public void HostGame()
     {
         //broadcast i am server :D
-        Discovery.StartAsServer();
+        _discovery.StartAsServer();
         //start server over this ip
         StartHost();
     }
@@ -41,6 +36,7 @@ public class MyNetworkManager : NetworkManager
         //connect to server
         StartClient();
     }
+
     public void JoinGame(string ip)
     {
         networkAddress = ip;
