@@ -9,7 +9,10 @@ using UnityEngine.UI;
 public class MyNetworkManager : NetworkManager
 {
     //get network discovery component
-    private MyNetworkDiscovery Discovery => GetComponent<MyNetworkDiscovery>();
+    private MyNetworkDiscovery Discovery
+    {
+        get { return GetComponent<MyNetworkDiscovery>(); }   
+    }
 
     private void Start()
     {

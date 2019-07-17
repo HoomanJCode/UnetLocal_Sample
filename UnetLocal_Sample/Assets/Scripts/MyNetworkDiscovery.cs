@@ -7,7 +7,10 @@ using UnityEngine.Networking;
 public class MyNetworkDiscovery : NetworkDiscovery
 {
     //get network manager component
-    private MyNetworkManager Manager => GetComponent<MyNetworkManager>();
+    private MyNetworkManager Manager
+    {
+        get { return GetComponent<MyNetworkManager>(); }
+    }
 
     public override void OnReceivedBroadcast(string fromAddress, string data)
     {
